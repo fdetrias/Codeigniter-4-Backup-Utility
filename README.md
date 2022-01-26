@@ -5,7 +5,7 @@ All credit belongs to Codeigniter 4 development team !
 
 ## Installation
 
-Simply download, copy and overwrite Utils.php to your_project/system/Database/MySQLi/ folder. You may backup the original file, just in case.
+Simply download and copy Utils.php to your_project/system/Database/MySQLi/ folder. You may need to backup the original file before overwrite it, just in case.
 
 ## Usage
 Then use it in controller like this :
