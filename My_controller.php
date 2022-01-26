@@ -3,17 +3,17 @@ namespace App\Controllers;
 
 class My_controller extends BaseController
 {
+    public function backup(){
+	$db = \Config\Database::connect();
+	$dbname = $db->database;
+	$path = WRITEPATH.'uploads/';   	         // change path here
+	$filename = $dbname.'_'.date('dMY_Hi').'.sql';   // change file name here
 
-	public function backup(){
-		$db = \Config\Database::connect();
+	$prefs = ['filename' => $filename];
 
-		$prefs = ['filename' => 'backup-'.date('dMY_Hi').'.sql'];
-
-		$util = (new \CodeIgniter\Database\Database())->loadUtils($db);
-
-		$backup = $util->backup($prefs,$db);
-		$writablePath = WRITEPATH.'uploads/';
-		write_file($writablePath.'backup-'.date('dMY_Hi').'.gz', $backup); 
-		return $this->response->download($writablePath.'backup-'.date('dMY_Hi').'.gz',null);
-	}
+	$util = (new \CodeIgniter\Database\Database())->loadUtils($db);
+	$backup = $util->backup($prefs,$db);	
+	write_file($path.$filename.'.gz', $backup); 
+	return $this->response->download($path.$filename.'.gz',null);
+    }
 }
