@@ -10,17 +10,19 @@ Simply download and copy Utils.php to your_project/system/Database/MySQLi/ folde
 ## Usage
 Then use it in controller like this :
 ```php
-public function backupDB(){
-   $db = \Config\Database::connect();
+public function backup(){
+	$db = \Config\Database::connect();
+	$dbname = $db->database;
+	$path = WRITEPATH.'uploads/';   				       // change path here
+	$filename = $dbname.'_'.date('dMY_Hi').'.sql';   // change file name here
 
-   //Here I just set the filename, for complete use see default preferences below
-   $prefs = ['filename' => 'backup-'.date('dMY_Hi').'.sql'];
+	$prefs = ['filename' => $filename];              // I only set the file name, for complete prefs see below 
 
-   $util = (new \CodeIgniter\Database\Database())->loadUtils($db);
-   $backupData = $util->backup($prefs,$db);
-   $writablePath = WRITEPATH.'uploads/';
-   write_file($writablePath.'backup-'.date('dMY_Hi').'.gz', $backupData); 
-   return $this->response->download($writablePath.'backup-'.date('dMY_Hi').'.gz',null);
+	$util = (new \CodeIgniter\Database\Database())->loadUtils($db);
+	$backup = $util->backup($prefs,$db);
+		
+	write_file($path.$filename.'.gz', $backup); 
+	return $this->response->download($path.$filename.'.gz',null);
 }
 ```
 Codeigniter 4 system\Database\BaseUtils.php default preferences :
