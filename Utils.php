@@ -1,8 +1,7 @@
 <?php
 /*	
- * INFO :
- * Taken from CodeIgniter 3 MySQLi Utils.php, adjust here and there to make it work with CI 4!
- * All credit belongs to CI 4 development team. Enjoy !
+ * I ported it from CodeIgniter 3 MySQLi Database Utils.php, adjust here and there to make it work with CI 4!
+ * All credit belongs to Codeigniter 4 development team.
 */
 
 
