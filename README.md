@@ -1,6 +1,5 @@
 # Codeigniter 4 MySQLi Database Backup Utility
-I ported it from CodeIgniter 3 MySQLi Database Utils.php, adjust here and there to make it work with Codeigniter 4.
-
+It's a migration from CodeIgniter 3 MySQLi Utils.php, adjust some functions to make it work with Codeigniter 4.
 All credit belongs to Codeigniter 4 development team !
 
 ## Installation
