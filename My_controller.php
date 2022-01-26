@@ -8,8 +8,7 @@ class My_controller extends BaseController
 	$dbname = $db->database;
 	$path = WRITEPATH.'uploads/';   	         // change path here
 	$filename = $dbname.'_'.date('dMY_Hi').'.sql';   // change file name here
-
-	$prefs = ['filename' => $filename];
+	$prefs = ['filename' => $filename];		 // I only set the file name, for complete prefs see README
 
 	$util = (new \CodeIgniter\Database\Database())->loadUtils($db);
 	$backup = $util->backup($prefs,$db);	
